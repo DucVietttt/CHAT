@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>CHATBOT CỦA ĐỨC VIỆT!!</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -12,11 +14,19 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
       font-family: 'Poppins', sans-serif;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      background: linear-gradient(-45deg, #74ebd5, #ACB6E5, #667eea, #764ba2);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
@@ -97,12 +107,47 @@
     .bot-icon {
       font-size: 20px;
     }
+
+    /* Giao diện khung chat */
+    .n8n-chat {
+      background: linear-gradient(to bottom right, #ffffff, #e6ecff);
+      border-radius: 20px !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Bong bóng chat bot */
+    .n8n-chat__message--bot {
+      background-color: #f0f4ff !important;
+      color: #2c3e50;
+      border-radius: 16px 16px 16px 4px !important;
+    }
+
+    /* Bong bóng chat người dùng */
+    .n8n-chat__message--user {
+      background-color: #667eea !important;
+      color: white !important;
+      border-radius: 16px 16px 4px 16px !important;
+    }
+
+    /* Input và nút gửi */
+    .n8n-chat__input {
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .n8n-chat__button {
+      background: linear-gradient(135deg, #667eea, #764ba2) !important;
+      color: white !important;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    🌐 CHAT BOT CỦA  ĐỨC VIỆT
+    🌐 CHAT BOT CỦA ĐỨC VIỆT
   </header>
 
   <div class="container">
@@ -114,8 +159,16 @@
   </div>
 
   <footer>
-    &copy; 2025 Chatbot Đức Việt.
+    &copy; 2025 Chatbot của Đức Việt.
   </footer>
+
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://vietduc1503.app.n8n.cloud/webhook/8b1678a3-bcd0-42f3-b1ce-1cdfd6d37186/chat'
+    });
+  </script>
 
 </body>
 </html>
