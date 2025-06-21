@@ -5,7 +5,6 @@
   <title>CHATBOT CỦA ĐỨC VIỆT!!</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-
   <style>
     * {
       box-sizing: border-box;
@@ -21,6 +20,7 @@
       background: linear-gradient(-45deg, #74ebd5, #ACB6E5, #667eea, #764ba2);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
+      transition: background 0.5s ease;
     }
 
     @keyframes gradientBG {
@@ -29,23 +29,11 @@
       100% { background-position: 0% 50%; }
     }
 
-    header {
+    header, footer {
       background-color: #2c3e50;
       color: white;
+      text-align: center;
       padding: 20px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: auto;
     }
 
     .container {
@@ -54,9 +42,8 @@
       border-radius: 20px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
       text-align: center;
-      max-width: 480px;
+      max-width: 600px;
       margin: 50px auto;
-      transition: transform 0.3s;
       animation: fadeIn 1s ease;
     }
 
@@ -69,10 +56,29 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    h1 {
-      color: #2c3e50;
-      font-size: 30px;
+    .title-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
       margin-bottom: 15px;
+    }
+
+    .title-row h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #2c3e50;
+    }
+
+    .clock {
+      font-size: 22px;
+      font-weight: 600;
+      color: #2c3e50;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 8px 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     p {
@@ -101,46 +107,84 @@
     .btn-chat:hover {
       background: linear-gradient(135deg, #5a67d8, #6b46c1);
       transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .bot-icon {
       font-size: 20px;
     }
 
-    /* Giao diện khung chat */
-    .n8n-chat {
-      background: linear-gradient(to bottom right, #ffffff, #e6ecff);
-      border-radius: 20px !important;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
-      font-family: 'Poppins', sans-serif;
+    .contact-section {
+      background-color: #ffffff;
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: none;
+      margin: 30px auto;
+      text-align: center;
+      animation: fadeIn 1s ease;
     }
 
-    /* Bong bóng chat bot */
-    .n8n-chat__message--bot {
-      background-color: #f0f4ff !important;
+    .contact-section h2 {
       color: #2c3e50;
-      border-radius: 16px 16px 16px 4px !important;
+      margin-bottom: 20px;
     }
 
-    /* Bong bóng chat người dùng */
-    .n8n-chat__message--user {
-      background-color: #667eea !important;
-      color: white !important;
-      border-radius: 16px 16px 4px 16px !important;
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
-    /* Input và nút gửi */
-    .n8n-chat__input {
-      background-color: #fff;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    .settings-buttons button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 25px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
+      transition: transform 0.2s ease;
     }
 
-    .n8n-chat__button {
-      background: linear-gradient(135deg, #667eea, #764ba2) !important;
-      color: white !important;
-      font-weight: bold;
+    .settings-buttons button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    }
+
+    .dark-theme {
+      background: linear-gradient(-45deg, #2c3e50, #34495e, #3b3b98, #2c2c54);
+      color: white;
+    }
+
+    .dark-theme .container,
+    .dark-theme .contact-section {
+      background-color: #1e272e;
+      color: white;
+    }
+
+    .dark-theme header,
+    .dark-theme footer {
+      background-color: #000000;
+    }
+
+    .dark-theme .btn-chat,
+    .dark-theme .settings-buttons button {
+      background: linear-gradient(135deg, #3742fa, #706fd3);
+    }
+
+    .dark-theme .settings-buttons button:hover {
+      background: linear-gradient(135deg, #4b4ded, #5f27cd);
+    }
+
+    .dark-theme .clock {
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
     }
   </style>
 </head>
@@ -150,25 +194,89 @@
     🌐 CHAT BOT CỦA ĐỨC VIỆT
   </header>
 
+  
   <div class="container">
-    <h1>🤖 CHATBOT CỦA ĐỨC VIỆT!!</h1>
-    <p>Nhấn nút bên dưới để trò chuyện với chatbot hỗ trợ thông minh ngay bây giờ!</p>
+    <div class="title-row">
+      <h1 id="title">🤖 CHATBOT CỦA ĐỨC VIỆT!!</h1>
+    </div>
+    <div class="clock" id="clock">00:00:00</div>
+    <p id="desc">Nhấn nút bên dưới để trò chuyện với chatbot hỗ trợ thông minh ngay bây giờ!</p>
     <a href="https://vietduc1503.app.n8n.cloud/webhook/8b1678a3-bcd0-42f3-b1ce-1cdfd6d37186/chat" target="_blank" class="btn-chat">
-      <span class="bot-icon">💬</span> Bắt đầu Chat
+      💬 <span id="start-chat">Bắt đầu Chat</span>
     </a>
+    
+  </div>
+
+  <div class="contact-section">
+    <div class="social-links">
+      <a href="https://facebook.com/ducviet" target="_blank" title="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="40" height="40">
+      </a>
+      <a href="https://www.tiktok.com/@ducviet" target="_blank" title="TikTok">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" width="40" height="40">
+      </a>
+      <a href="https://zalo.me/123456789" target="_blank" title="Zalo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/1024px-Icon_of_Zalo.svg.png" alt="Zalo" width="40" height="40" style="border-radius: 8px;">
+      </a>
+      <a href="mailto:duc.viet@example.com" title="Gửi email">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" width="40" height="40">
+      </a>
+    </div>
+    <div class="settings-buttons">
+      <button onclick="toggleTheme()">🌗 Đổi giao diện</button>
+      <button onclick="toggleLanguage()">🌐 Đổi ngôn ngữ</button>
+    </div>
   </div>
 
   <footer>
     &copy; 2025 Chatbot của Đức Việt.
   </footer>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  <script>
+    // Đồng hồ realtime
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
-    createChat({
-      webhookUrl: 'https://vietduc1503.app.n8n.cloud/webhook/8b1678a3-bcd0-42f3-b1ce-1cdfd6d37186/chat'
-    });
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+    }
+
+    let currentLang = 'vi';
+    const langData = {
+      vi: {
+        title: "🤖 CHATBOT CỦA ĐỨC VIỆT!!",
+        desc: "Nhấn nút bên dưới để trò chuyện với chatbot hỗ trợ thông minh ngay bây giờ!",
+        startChat: "Bắt đầu Chat"
+      },
+      en: {
+        title: "🤖 ĐUC VIET'S CHATBOT!!",
+        desc: "Click the button below to start chatting with the smart support bot!",
+        startChat: "Start Chat"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'vi' ? 'en' : 'vi';
+      const data = langData[currentLang];
+      document.getElementById("title").textContent = data.title;
+      document.getElementById("desc").textContent = data.desc;
+      document.getElementById("start-chat").textContent = data.startChat;
+    }
   </script>
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
+	createChat({
+		webhookUrl: 'https://vietduc1503.app.n8n.cloud/webhook/8b1678a3-bcd0-42f3-b1ce-1cdfd6d37186/chat'
+	});
+</script>
 </body>
 </html>
